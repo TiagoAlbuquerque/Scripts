@@ -22,28 +22,21 @@ echo "#       installing packages      #"
 echo "#                                #"
 echo "##################################"
 
-apt-get install git -y
-apt-get install vim -y
-apt-get install bzip2 -y
-apt-get install make -y
-apt-get install xorg xinit -y
-apt-get install i3 suckless-tools -y
-apt-get install sudo -y
-apt-get install linuxlogo -y
-apt-get install zathura -y
-apt-get install apt-transport-https -y
-apt-get install libasound2 alsa-base alsa-utils alsa-oss alsamixergui -y
-
+apt-get install git vim bzip2 make i3 suckless-tools sudo linuxlogo zathura apt-transport-https libasound2 alsa-base alsa-utils alsa-oss alsamixergui xserver-xorg-video-all -y
+apt-get install xorg -y
 
 echo "##################################"
 echo "#                                #"
-echo "#     installing Oera Browser    #"
+echo "#    installing Opera Browser    #"
 echo "#                                #"
 echo "##################################"
 
 #wget https://ftp.opera.com/pub/opera/desktop/38.0.2220.41/linux/opera-stable_38.0.2220.41_i386.deb
-wget https://ftp.opera.com/pub/opera/desktop/38.0.2220.41/linux/opera-stable_38.0.2220.41_.amd64.deb
+wget https://ftp.opera.com/pub/opera/desktop/38.0.2220.41/linux/opera-stable_38.0.2220.41_amd64.deb
 dpkg -i opera*
+apt-get -f install -y
+dpkg -i opera*
+rm opera*
 
 echo "##################################"
 echo "#                                #"
@@ -62,7 +55,7 @@ echo "# setting up configuration files #"
 echo "#                                #"
 echo "##################################"
 
-echo "[[ -z $ Display && $XDG_VTNR -eq 1 ]] && exec startx" >> /etc/profile
+echo "[[ -z \$Display && \$XDG_VTNR -eq 1 ]] && exec startx" >> /etc/profile
 
 echo "##################################"
 echo "#                                #"
@@ -70,7 +63,7 @@ echo "#     creating user for tiago    #"
 echo "#                                #"
 echo "##################################"
 
-deluser tiago
+deluser tiago --remove-home
 adduser tiago
 adduser tiago sudo
 
