@@ -41,11 +41,10 @@ echo "#    installing Opera Browser    #"
 echo "#                                #"
 echo "##################################"
 
-#wget https://ftp.opera.com/pub/opera/desktop/38.0.2220.41/linux/opera-stable_38.0.2220.41_i386.deb
-wget https://ftp.opera.com/pub/opera/desktop/38.0.2220.41/linux/opera-stable_38.0.2220.41_amd64.deb
+wget https://ftp.opera.com/pub/opera/desktop/40.0.2308.81/linux/opera-stable_40.0.2308.81_i386.deb
+wget https://ftp.opera.com/pub/opera/desktop/40.0.2308.81/linux/opera-stable_40.0.2308.81_amd64.deb
 dpkg -i opera*
 apt-get -f install -y
-dpkg -i opera*
 rm opera*
 
 echo "##################################"
