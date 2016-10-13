@@ -22,8 +22,18 @@ echo "#       installing packages      #"
 echo "#                                #"
 echo "##################################"
 
-apt-get install git vim bzip2 make i3 suckless-tools sudo linuxlogo zathura pandoc apt-transport-https libasound2 alsa-base alsa-utils alsa-oss alsamixergui xserver-xorg-video-all -y
+apt-get install git -y
+apt-get install vim -y
+apt-get install bzip2 -y
+apt-get install make -y
+apt-get install sudo -y
+apt-get install linuxlogo -y
+apt-get install zathura pandoc -y
+apt-get install apt-transport-https -y
+apt-get install libasound2 alsa-base alsa-utils alsa-oss alsamixergui -y
+apt-get install xserver-xorg-video-all -y
 apt-get install xorg -y
+apt-get install i3 suckless-tools -y
 
 echo "##################################"
 echo "#                                #"
