@@ -22,7 +22,7 @@ echo "#       installing packages      #"
 echo "#                                #"
 echo "##################################"
 
-apt-get install git vim bzip2 make i3 suckless-tools sudo linuxlogo zathura apt-transport-https libasound2 alsa-base alsa-utils alsa-oss alsamixergui xserver-xorg-video-all -y
+apt-get install git vim bzip2 make i3 suckless-tools sudo linuxlogo zathura pandoc apt-transport-https libasound2 alsa-base alsa-utils alsa-oss alsamixergui xserver-xorg-video-all -y
 apt-get install xorg -y
 
 echo "##################################"
