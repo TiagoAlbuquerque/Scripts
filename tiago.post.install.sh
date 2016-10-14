@@ -24,7 +24,7 @@ echo "##################################"
 
 apt-get install git -y
 apt-get install vim -y
-apt-get install bzip2 -y
+apt-get install unzip bzip2 -y
 apt-get install make -y
 apt-get install sudo -y
 apt-get install linuxlogo -y
@@ -34,6 +34,19 @@ apt-get install libasound2 alsa-base alsa-utils alsa-oss alsamixergui -y
 apt-get install xserver-xorg-video-all -y
 apt-get install xorg -y
 apt-get install i3 suckless-tools -y
+apt-get install compton -y
+
+echo "##################################"
+echo "#                                #"
+echo "#         installing Rofi        #"
+echo "#                                #"
+echo "##################################"
+#add unstable to /etc/apt/sources.list
+echo "# UNSTABLE" >> /etc/apt/sources.list
+echo "deb http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
+echo "deb-src http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
+apt-get update
+apt-get install rofi
 
 echo "##################################"
 echo "#                                #"
