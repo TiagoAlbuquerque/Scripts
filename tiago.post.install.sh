@@ -35,7 +35,15 @@ apt-get install xserver-xorg-video-all -y
 apt-get install xorg -y
 apt-get install i3 suckless-tools -y
 apt-get install compton -y
+
+# Application to set wallpaper
 apt-get install feh -y
+
+# Screen shot application
+apt-get install scrot -y
+
+# Command line image composition application
+apt-get install imagemagick -y
 
 echo "##################################"
 echo "#                                #"
