@@ -35,6 +35,7 @@ apt-get install xserver-xorg-video-all -y
 apt-get install xorg -y
 apt-get install i3 suckless-tools -y
 apt-get install compton -y
+apt-get install feh -y
 
 echo "##################################"
 echo "#                                #"
