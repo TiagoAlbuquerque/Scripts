@@ -9,7 +9,7 @@ market = 'pt-BR'
 resolution = '1920x1080'
 baseDirectory= expanduser("~") +'/Pictures/Wallpapers/'
 old = 'Old/'
-wallpaperName = 'wallpaper.jpg'
+wallpaper = 'wallpaper.jpg'
 
 loop_value = 1
 while (loop_value == 1):
@@ -24,10 +24,13 @@ while (loop_value == 1):
 		obj = json.load(response)
 		url = (obj['images'][0]['urlbase'])
 		url = 'http://www.bing.com' + url + '_' + resolution + '.jpg'
+		print 'Found '+ url
 		name = url[url.rfind('/')+1:]
 
 		if not os.path.exists(baseDirectory+old): 
+			print 'Did not find folder ' + baseDirectory+old 
 			os.makedirs(baseDirectory+old)
+			print 'Created folder ' + baseDirectory+old 
 		path = baseDirectory + old + name
 
 		if os.path.exists(path):
@@ -35,15 +38,14 @@ while (loop_value == 1):
 			fileDate = time.strftime('%m/%d/%Y', time.gmtime(os.path.getmtime(path)))
 			if todayDate == fileDate:
 				print "You already have today's Bing image"
-			else:
-				print ("Downloading Bing wallpaper to %s" % (path))
-				f = open(path, 'w')
-				bingpic = urllib2.urlopen(url)
-				f.write(bingpic.read())
-		else:
-			print ("Downloading Bing wallpaper to %s" % (path))
-			f = open(path, 'w')
-			bingpic = urllib2.urlopen(url)
-			f.write(bingpic.read())
-			os.remove(baseDirectory+wallpaperName)
-			os.symlink(path, baseDirectory+wallpaperName)
+				break
+		print ("Downloading Bing wallpaper to %s" % (path))
+		f = open(path, 'w')
+		bingpic = urllib2.urlopen(url)
+		f.write(bingpic.read())
+		if os.path.exists(baseDirectory + wallpaper):
+			print 'Found previous symbolic link'
+			os.remove(baseDirectory + wallpaper)
+			print 'Removed previous symbolic link'
+		os.symlink(path, baseDirectory + wallpaper)
+		print 'Created new symbolic link for ' + path + ' at ' + baseDirectory+wallpaper
