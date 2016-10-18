@@ -98,6 +98,12 @@ deluser tiago --remove-home
 adduser tiago
 adduser tiago sudo
 
+chown root:tiago /sbin/shutdown && sudo chmod 4770 /sbin/shutdown
+chown root:tiago /sbin/reboot && sudo chmod 4770 /sbin/reboot
+
+ln -s /sbin/shutdown /usr/bin/shutdown
+ln -s /sbin/reboot /usr/bin/reboot
+
 echo "##################################"
 echo "#                                #"
 echo "#            FINISHED            #"
