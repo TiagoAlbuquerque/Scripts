@@ -25,7 +25,8 @@ echo "##################################"
 apt-get install git -y
 apt-get install vim -y
 apt-get install unzip bzip2 -y
-apt-get install make -y
+apt-get install make gcc -y
+apt-get install linux-headers-$(uname -r) -y
 apt-get install sudo -y
 apt-get install linuxlogo -y
 apt-get install zathura pandoc -y
@@ -55,7 +56,7 @@ echo "# UNSTABLE" >> /etc/apt/sources.list
 echo "deb http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
 echo "deb-src http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
 apt-get update
-apt-get install rofi
+apt-get install rofi -y
 
 echo "##################################"
 echo "#                                #"
