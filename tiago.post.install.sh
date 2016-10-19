@@ -24,6 +24,7 @@ echo "##################################"
 
 apt-get install git -y
 apt-get install vim -y
+apt-get install gnome-terminal -y
 apt-get install unzip bzip2 -y
 apt-get install make gcc -y
 apt-get install linux-headers-$(uname -r) -y
