@@ -23,7 +23,6 @@ echo "#                                #"
 echo "##################################"
 
 apt-get install git -y
-apt-get install vim -y
 apt-get install gnome-terminal -y
 apt-get install unzip bzip2 -y
 apt-get install make gcc -y
@@ -89,6 +88,20 @@ echo "#                                #"
 echo "##################################"
 
 echo "[[ -z \$Display && \$XDG_VTNR -eq 1 ]] && exec startx" >> /etc/profile
+
+echo "##################################"
+echo "#                                #"
+echo "#         Installing Vim         #"
+echo "#                                #"
+echo "##################################"
+
+apt-get build-dep vim -y
+git clone http://github.com/vim/vim.git
+cd vim
+./configure --with-features=huge --enable-pythoninterp=yes --enable-python3interp=yes --enable-multibyte --enablerubyinetrp=yes --enable-luainterp=yes --enable-gui=gtk2 --with-x
+make install -y
+cd ..
+rm -rf vim
 
 echo "##################################"
 echo "#                                #"
