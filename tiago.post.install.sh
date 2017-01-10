@@ -1,4 +1,4 @@
-
+#! /usr/bin/env bash
 echo "##################################"
 echo "#                                #"
 echo "#          updating apt          #"
@@ -25,7 +25,7 @@ echo "##################################"
 apt-get install git -y
 apt-get install gnome-terminal -y
 apt-get install unzip bzip2 -y
-apt-get install make gcc -y
+apt-get install make gcc build-essential python python-dev python3 python3-dev -y
 apt-get install linux-headers-$(uname -r) -y
 apt-get install sudo -y
 apt-get install linuxlogo -y
@@ -64,8 +64,8 @@ echo "#    installing Opera Browser    #"
 echo "#                                #"
 echo "##################################"
 
-wget https://ftp.opera.com/pub/opera/desktop/40.0.2308.81/linux/opera-stable_40.0.2308.81_i386.deb
-wget https://ftp.opera.com/pub/opera/desktop/40.0.2308.81/linux/opera-stable_40.0.2308.81_amd64.deb
+wget https://ftp.opera.com/pub/opera/desktop/42.0.2393.94/linux/opera-stable_42.0.2393.94_i386.deb
+wget https://ftp.opera.com/pub/opera/desktop/42.0.2393.94/linux/opera-stable_42.0.2393.94_amd64.deb
 dpkg -i opera*
 apt-get -f install -y
 rm opera*
