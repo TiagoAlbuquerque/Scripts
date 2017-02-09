@@ -64,11 +64,21 @@ echo "#    installing Opera Browser    #"
 echo "#                                #"
 echo "##################################"
 
-wget https://ftp.opera.com/pub/opera/desktop/42.0.2393.94/linux/opera-stable_42.0.2393.94_i386.deb
-wget https://ftp.opera.com/pub/opera/desktop/42.0.2393.94/linux/opera-stable_42.0.2393.94_amd64.deb
+#wget https://ftp.opera.com/pub/opera/desktop/43.0.2442.806/linux/opera-stable_43.0.2442.806_i386.deb
+wget https://ftp.opera.com/pub/opera/desktop/43.0.2442.806/linux/opera-stable_43.0.2442.806_amd64.deb
 dpkg -i opera*
 apt-get -f install -y
 rm opera*
+
+echo "##################################"
+echo "#                                #"
+echo "#   installing Firefox Browser   #"
+echo "#                                #"
+echo "##################################"
+
+apt-get install firefox -y
+apt-get install icedtea-plugin -y
+
 
 echo "##################################"
 echo "#                                #"
