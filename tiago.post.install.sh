@@ -48,18 +48,6 @@ apt-get install imagemagick -y
 
 echo "##################################"
 echo "#                                #"
-echo "#         installing Rofi        #"
-echo "#                                #"
-echo "##################################"
-#add unstable to /etc/apt/sources.list
-echo "# UNSTABLE" >> /etc/apt/sources.list
-echo "deb http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
-echo "deb-src http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
-apt-get update
-apt-get install rofi -y
-
-echo "##################################"
-echo "#                                #"
 echo "#    installing Opera Browser    #"
 echo "#                                #"
 echo "##################################"
@@ -108,10 +96,26 @@ echo "##################################"
 apt-get build-dep vim -y
 git clone http://github.com/vim/vim.git
 cd vim
-./configure --with-features=huge --enable-pythoninterp=yes --enable-python3interp=yes --enable-multibyte --enablerubyinetrp=yes --enable-luainterp=yes --enable-gui=gtk2 --with-x
-make install -y
+./configure --with-features=huge --enable-pythoninterp=yes --enable-python3interp=yes --enable-multibyte --enableruby-inetrp=yes --enable-luainterp=yes --enable-gui=gtk2 --with-x
+make install
 cd ..
 rm -rf vim
+
+echo "##################################"
+echo "#                                #"
+echo "#         installing Rofi        #"
+echo "#                                #"
+echo "##################################"
+#add unstable to /etc/apt/sources.list
+cp /etc/apt/sources.list /etc/apt/sources.list.bkp
+echo "# UNSTABLE" >> /etc/apt/sources.list
+echo "deb http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
+echo "deb-src http://ftp.debian.org/debian unstable main" >> /etc/apt/sources.list
+apt-get update
+apt-get install rofi -y
+rm /etc/apt/sources.list
+mv /etc/apt/sources.list.bkp /etc/apt/sources.list
+apt-get update
 
 echo "##################################"
 echo "#                                #"
@@ -120,7 +124,7 @@ echo "#                                #"
 echo "##################################"
 
 deluser tiago --remove-home
-adduser tiago
+useradd tiago
 adduser tiago sudo
 
 chown root:tiago /sbin/shutdown && sudo chmod 4770 /sbin/shutdown
@@ -128,6 +132,27 @@ chown root:tiago /sbin/reboot && sudo chmod 4770 /sbin/reboot
 
 ln -s /sbin/shutdown /usr/bin/shutdown
 ln -s /sbin/reboot /usr/bin/reboot
+
+echo "##################################"
+echo "#                                #"
+echo "#    setting up user for tiago   #"
+echo "#                                #"
+echo "##################################"
+
+su tiago
+cd ~ 
+git clone http://github.com/tiagoalbuquerque/dotfiles.git
+rsync -ar dotfiles/ ~/
+rm -rf dotfiles
+git clone http://github.com/tiagoalbuquerque/scripts.git Documents/Scripts
+mkdir Pictures/Icons
+cp Documents/Scripts/lock.png Pictures/Icons/
+git clone http://github.com/powerline/fonts.git
+cp fonts/* .fonts/
+rm -rf fonts
+fc-cache -f .fonts
+git clone http://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+exit
 
 echo "##################################"
 echo "#                                #"
