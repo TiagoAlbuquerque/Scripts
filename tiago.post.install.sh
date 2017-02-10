@@ -1,4 +1,15 @@
 #! /usr/bin/env bash
+
+echo "##################################"
+echo "#                                #"
+echo "#       fixing apt sources       #"
+echo "#                                #"
+echo "##################################"
+
+cp /etc/apt/sources.list /etc/apt/sources.list.cdrom
+sed -i '/cdrom/d' /etc/apt/sources.list
+cat /etc/apt/sources.list
+
 echo "##################################"
 echo "#                                #"
 echo "#          updating apt          #"
@@ -67,18 +78,6 @@ echo "##################################"
 apt-get install firefox -y
 apt-get install icedtea-plugin -y
 
-
-echo "##################################"
-echo "#                                #"
-echo "#          cleaning apt          #"
-echo "#                                #"
-echo "##################################"
-
-apt-get autoclean
-apt-get purge
-apt-get autoremove
-
-
 echo "##################################"
 echo "#                                #"
 echo "# setting up configuration files #"
@@ -119,12 +118,29 @@ apt-get update
 
 echo "##################################"
 echo "#                                #"
+echo "#          cleaning apt          #"
+echo "#                                #"
+echo "##################################"
+
+apt-get autoclean
+apt-get purge
+apt-get autoremove
+
+echo "##################################"
+echo "#                                #"
 echo "#     creating user for tiago    #"
 echo "#                                #"
 echo "##################################"
 
 deluser tiago --remove-home
-useradd tiago
+adduser tiago
+
+echo "##################################"
+echo "#                                #"
+echo "#    setting up user for tiago   #"
+echo "#                                #"
+echo "##################################"
+
 adduser tiago sudo
 
 chown root:tiago /sbin/shutdown && sudo chmod 4770 /sbin/shutdown
@@ -132,12 +148,6 @@ chown root:tiago /sbin/reboot && sudo chmod 4770 /sbin/reboot
 
 ln -s /sbin/shutdown /usr/bin/shutdown
 ln -s /sbin/reboot /usr/bin/reboot
-
-echo "##################################"
-echo "#                                #"
-echo "#    setting up user for tiago   #"
-echo "#                                #"
-echo "##################################"
 
 su tiago
 cd ~ 
@@ -152,6 +162,7 @@ cp fonts/* .fonts/
 rm -rf fonts
 fc-cache -f .fonts
 git clone http://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 exit
 
 echo "##################################"
