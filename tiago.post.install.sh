@@ -149,17 +149,16 @@ chown root:tiago /sbin/reboot && sudo chmod 4770 /sbin/reboot
 ln -s /sbin/shutdown /usr/bin/shutdown
 ln -s /sbin/reboot /usr/bin/reboot
 
-su tiago
-cd ~ 
+cd /home/tiago 
 git clone http://github.com/tiagoalbuquerque/dotfiles.git
-rsync -ar dotfiles/ ~/
+rsync -ar dotfiles/ /home/tiago
 rm -rf dotfiles
 git clone http://github.com/tiagoalbuquerque/scripts.git Documents/Scripts
-mkdir Pictures/Icons
-cp Documents/Scripts/lock.png Pictures/Icons/
-git clone http://github.com/powerline/fonts.git
-cp fonts/* .fonts/
-rm -rf fonts
+mkdir Pictures
+mkdir Icons
+ln -s Documents/Scripts/lock.png Pictures/Icons/lock.png
+rm -rf .fonts
+git clone http://github.com/powerline/fonts.git .fonts
 fc-cache -f .fonts
 git clone http://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
