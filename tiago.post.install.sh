@@ -95,7 +95,7 @@ echo "##################################"
 apt-get build-dep vim -y
 git clone http://github.com/vim/vim.git
 cd vim
-./configure --with-features=huge --enable-pythoninterp=yes --enable-python3interp=yes --enable-multibyte --enableruby-inetrp=yes --enable-luainterp=yes --enable-gui=gtk2 --with-x
+./configure --with-features=huge --enable-pythoninterp=yes --enable-python3interp=yes --enable-multibyte --enable-rubyinetrp=yes --enable-luainterp=yes --enable-gui=gtk2 --with-x
 make install
 cd ..
 rm -rf vim
@@ -154,14 +154,14 @@ git clone http://github.com/tiagoalbuquerque/dotfiles.git
 rsync -ar dotfiles/ /home/tiago
 rm -rf dotfiles
 git clone http://github.com/tiagoalbuquerque/scripts.git Documents/Scripts
-mkdir Pictures
-mkdir Icons
+mkdir Pìctures/Icons
 ln -s Documents/Scripts/lock.png Pictures/Icons/lock.png
 rm -rf .fonts
 git clone http://github.com/powerline/fonts.git .fonts
 fc-cache -f .fonts
 git clone http://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# depois de adicionar o Vundle basta iniciar o vim e executar :PluginInstall
 exit
 
 echo "##################################"
