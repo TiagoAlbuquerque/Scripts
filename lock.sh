@@ -3,6 +3,7 @@
 icon=$HOME/Pictures/Icons/lock.png
 tmpbg=/tmp/screen.png
 
+
 (( $# )) && { icon=$1; }
 
 scrot "$tmpbg"
