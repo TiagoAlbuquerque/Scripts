@@ -8,7 +8,11 @@ tmpbg=/tmp/screen.png
 
 scrot "$tmpbg"
 convert "$tmpbg" -scale 5% -scale 2000% "$tmpbg"
-convert "$tmpbg" $icon -gravity center -geometry +0+72 -composite -matte "$tmpbg"
+#para um monitor
+#convert "$tmpbg" $icon -gravity center -geometry +0+72 -composite -matte "$tmpbg"
+#para dois monitores
+convert "$tmpbg" $icon -gravity center -geometry +960+72 -composite -matte "$tmpbg"
+convert "$tmpbg" $icon -gravity center -geometry -960+72 -composite -matte "$tmpbg"
 i3lock -i "$tmpbg"
 sleep 60; pgrep i3lock && xset dpms force off
 rm "$tmpbg"
