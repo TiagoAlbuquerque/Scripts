@@ -155,7 +155,7 @@ rsync -ar dotfiles/ /home/tiago
 rm -rf dotfiles
 git clone http://github.com/tiagoalbuquerque/scripts.git Documents/Scripts
 mkdir Pìctures/Icons
-ln -s Documents/Scripts/lock.png Pictures/Icons/lock.png
+ln -s Documents/Code/Scripts/lock.png Pictures/Icons/lock.png
 rm -rf .fonts
 git clone http://github.com/powerline/fonts.git .fonts
 fc-cache -f .fonts
