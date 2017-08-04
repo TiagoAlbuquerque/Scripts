@@ -42,7 +42,7 @@ apt-get install sudo -y
 apt-get install linuxlogo -y
 apt-get install zathura pandoc -y
 apt-get install apt-transport-https -y
-apt-get install libasound2 alsa-base alsa-utils alsa-oss alsamixergui -y
+apt-get install libasound2 alsa-base alsa-utils alsa-oss alsamixergui pulseaudio -y
 apt-get install xserver-xorg-video-all -y
 apt-get install xorg -y
 apt-get install i3 suckless-tools -y
@@ -149,7 +149,7 @@ chown root:tiago /sbin/reboot && sudo chmod 4770 /sbin/reboot
 ln -s /sbin/shutdown /usr/bin/shutdown
 ln -s /sbin/reboot /usr/bin/reboot
 
-cd /home/tiago 
+cd /home/tiago
 git clone http://github.com/tiagoalbuquerque/dotfiles.git
 rsync -ar dotfiles/ /home/tiago
 rm -rf dotfiles
