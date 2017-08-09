@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 import urllib2
 import json
 import datetime
@@ -28,7 +28,7 @@ while (loop_value == 1):
         print ('Found '+ url)
         name = url[url.rfind('/')+1:]
 
-        if not os.path.exists(baseDirectory+old): 
+        if not os.path.exists(baseDirectory+old):
             print ('Did not find folder ' + baseDirectory+old)
             os.makedirs(baseDirectory+old)
             print ('Created folder ' + baseDirectory+old)

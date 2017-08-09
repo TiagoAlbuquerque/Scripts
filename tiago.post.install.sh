@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 
 echo "##################################"
 echo "#                                #"
@@ -34,7 +34,7 @@ echo "#                                #"
 echo "##################################"
 
 apt-get install git -y
-apt-get install gnome-terminal -y
+apt-get install konsole -y
 apt-get install unzip bzip2 -y
 apt-get install make gcc build-essential python python-dev python3 python3-dev -y
 apt-get install linux-headers-$(uname -r) -y
